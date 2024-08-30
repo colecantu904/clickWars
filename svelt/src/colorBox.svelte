@@ -1,10 +1,16 @@
-<button class="color-button" >Red</button>
+<!-- Simple component that accepts a color style and applies to the button, needs better styling -->
+<script>
+  export let color;
+</script>
 
 <style>
     .color-button {
-      width: 50vw;
-      height: 90vh;
-      background-color: var(--color, #1a1a1a);
+      width: 50%;
+      height: 50%;
+      background-color: "white";
   }
 </style>
-  
+
+<button class="color-button" style="background-color: {color}" on:click={}>
+
+</button>

@@ -1,42 +1,34 @@
 <script lang="ts">
-  import svelteLogo from './assets/svelte.svg'
-  import viteLogo from '/vite.svg'
   import Counter from './lib/Counter.svelte'
+  import ColorBox from './colorBox.svelte';
+  import InfoBox from './infoBox.svelte';
+  import { pb, records } from './lib/pocketbase'
 
+  // choosing color logic will be here, you could do some cool stuff
+  let colors =["red" , "blue"]
 
-  // choosing color logic will be here
-  let color1: string = "red";
-  let color2: string = "blue";
+  // if the colors inputed in colors are not the same in the database, make new records for them
 
 
 </script>
 
-<main>
-  <p>
-    Check out <a href="https://github.com/sveltejs/kit#readme" target="_blank" rel="noreferrer">SvelteKit</a>, the official Svelte app framework powered by Vite!
-  </p>
-  <div class="button-container">
-    <button class="color-button" --color={color1}>Red</button>
-    <button class="color-button" --color={color2}>Blue</button>
-  </div>
+<!--I want it to be able to give it two color names, (or hex), and configure the database and buttons to work with ith perfectly -->
 
+<main>
+  <InfoBox num1={30} num2={10} />
+  <div class="button-container">
+    {#each colors as color}
+      <ColorBox color={color} />
+    {/each}
+  </div>
 </main>
 
 <style>
-  .read-the-docs {
-    color: #888;
-  }
-
   .button-container {
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
-  }
-
-  .color-button {
-    width: 50vw;
+    flex-wrap: wrap;
     height: 90vh;
-    background-color: var(--color, #1a1a1a);
-}
-
+    width: 100vw;
+  }
 </style>
