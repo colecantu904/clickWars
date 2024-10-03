@@ -4,7 +4,7 @@
 </script>
 
 <p>
-    Clicked: {num1} Clicked: {num2};
+    Clicked First Color: {num1} Clicked Second Color: {num2};
 </p>
 
 <style>
